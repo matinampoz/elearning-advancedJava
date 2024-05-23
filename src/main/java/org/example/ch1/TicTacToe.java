@@ -42,7 +42,7 @@ public class TicTacToe {
      */
 
     public void setValue(int x, int y, int value) throws ValueOutOfBoundsException{
-        if (x<0 || x>2 || y<1 || y>2 || value!=1 ||value !=2){
+        if (x<0 || x>2 || y<0 || y>2 || (value!=1 && value !=2)){
             throw new ValueOutOfBoundsException();
         }
         grid[x][y] = value;
@@ -55,7 +55,7 @@ public class TicTacToe {
      */
 
     public boolean checkForTicTacToe(){
-        return ((grid[0][0] == grid[1][1]) && (grid[1][1] == grid[2][2]) |
+        return ((grid[0][0] == grid[1][1]) && (grid[1][1] == grid[2][2]) ||
                 (grid[0][2] == grid[1][1] ) && (grid[1][1] == grid[2][0]) &&
                 (grid[1][1] != 0));
     }
