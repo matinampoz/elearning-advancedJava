@@ -21,7 +21,7 @@ class MathsClassTest {
         mathsClass = new MathsClass(10);
     }
 
-    @BeforeEach //δη,ιουργει dummydata, τρεχει πριν απο καθε test μεθοδο
+    @BeforeEach //δημιουργει dummydata, τρεχει πριν απο καθε test μεθοδο
     void setUp() {
         createDummyData();
     }
@@ -56,10 +56,12 @@ class MathsClassTest {
     }
 
     private void createDummyData(){
+
         student = new Student("Matina", "Bozardeni");
     }
 
     public void eraseData(){
+        //Σε Collections όπως ArrayList διαγράφουμε με iterators
         Iterator<Student> itr = mathsClass.getStudentList().iterator();
         while (itr.hasNext()){
             Student s = itr.next();

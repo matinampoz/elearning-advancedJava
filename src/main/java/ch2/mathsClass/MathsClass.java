@@ -35,4 +35,6 @@ public class MathsClass {
     public void setStudentList(List<Student> studentList) {
         this.studentList = studentList;
     }
+
+    //για να δημιουργησω κλαση test κανω alt και enter πανω στο ονομα της κλασης και μετα επιλεγω
 }
