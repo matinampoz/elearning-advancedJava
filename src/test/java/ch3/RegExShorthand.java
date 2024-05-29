@@ -10,6 +10,7 @@ $ τέλος string
 \d [0-9]
 \D [^0-9]
 \b word boundaries
+\. .
  */
 
 public class RegExShorthand {
