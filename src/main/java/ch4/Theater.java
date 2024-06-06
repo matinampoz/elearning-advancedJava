@@ -1,6 +1,6 @@
 package ch4;
 
-public class Theater {
+public class Theater implements ITheater{
 
     private String theaterName;
     private int rows;
@@ -26,6 +26,65 @@ public class Theater {
     public String getTheaterName() {
         return theaterName;
     }
+
+    /**
+     *
+     * @param seatNumber ο αριθμος θέσης σε μορφη κεφαλαιο γραμμα ακολουθουμενο απο 2 ψηφια
+     * @return true αν γίνει το reservation, αλλιως false
+     * @throws IsReservedException αν η θέση ειναι ηδη reserved
+     */
+    @Override
+    public boolean reserveSeat(String seatNumber) throws IsReservedException {
+        int row, column;
+        if (seatNumber != null && seatNumber.matches("[A-Z]{1}\\d{2}")){
+            row = seatNumber.charAt(0);
+            column = Integer.parseInt(seatNumber.substring(1));
+        }else {
+            System.out.println("Wrong seat number");
+            return false;
+        }
+        return ((row >= 0 && row < this.rows) && (column >= 1 && column <= seatsPerRow)) &&
+                (seats[row][column - 1].reserve());
+    }
+
+    /**
+     *
+     * @param seatNumber ο αριθμος θέσης σε μορφη κεφαλαιο γραμμα ακολουθουμενο απο 2 ψηφια
+     * @return true αν γίνει το cancel, αλλιως false
+     * @throws IsReservedException αν η θέση ειναι ηδη non reserved
+     */
+    @Override
+    public boolean cancelReservation(String seatNumber) throws IsNotReservedException {
+        int row, column;
+        if (seatNumber != null && seatNumber.matches("[A-Z]{1}\\d{2}")){
+            row = seatNumber.charAt(0);
+            column = Integer.parseInt(seatNumber.substring(1));
+        }else {
+            System.out.println("Wrong seat number");
+            return false;
+        }
+        return ((row >= 0 && row < this.rows) && (column >= 1 && column <= seatsPerRow)) &&
+                (seats[row][column - 1].cancel());
+    }
+
+    /**
+     * εκτυπωνει τα seatNumbers και -R αν η θεση ειναι reserved  η -NR αν δεν ειναι
+     */
+    @Override
+    public void printSeats() {
+        System.out.println(this.getTheaterName().toUpperCase());
+        for (Seat[] row : seats) {
+            for (Seat column : row){
+                System.out.printf("%s%s", column.getSeatNumber(),
+                        column.isReserved() ? "-R" : "-NR");
+            }
+            System.out.println();
+    }
+
+
+}
+
+
 
     private static class Seat implements ISeat{
         /*
@@ -54,6 +113,7 @@ public class Theater {
         public void setReserved(boolean reserved) {
             this.reserved = reserved;
         }
+
 
         @Override
         public boolean reserve() throws IsReservedException {
