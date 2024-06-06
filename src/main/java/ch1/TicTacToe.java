@@ -1,4 +1,4 @@
-package org.example.ch1;
+package ch1;
 
 /**
 *Clas tic-tac-toe
@@ -41,7 +41,7 @@ public class TicTacToe {
      * @param value 1 or 2, the value given by the player
      */
 
-    public void setValue(int x, int y, int value) throws ValueOutOfBoundsException{
+    public void setValue(int x, int y, int value) throws ValueOutOfBoundsException {
         if (x<0 || x>2 || y<0 || y>2 || (value!=1 && value !=2)){
             throw new ValueOutOfBoundsException();
         }

@@ -76,8 +76,17 @@ public class PatternMatcherCapturingGroups {
 
         String s4 = "12/31/2000";
 
-        Pattern patternDate = Pattern.compile("(\\d{2}/\\d{2}/\\d{4})");
+        //θελουμε να 3 γρουπ (μηνα/μερα/έτος) να τα απομονωσουμε και στην συνεχεια να αποδωσουμε την ελληνικη μορφη ημερομηνιας
+        //capturing groups, καταναλωνουν τους χαρακτηρες και μετα τους αποθηκευουν σε αντιθεση με τα non capturing groups που μονο ελεγχω την υπαρξη ενος pattern χωρις να τα καταναλωσω. δες κλαση NonCapturingGroups
+        Pattern patternDate = Pattern.compile("(\\d{2})/(\\d{2})/(\\d{4})"); //τα γκρουπ μπαινουν σε παρενθεσεις (back reference). επίσης μπορω να τα κανω name
         Matcher matcher7 = patternDate.matcher(s4);
+
+        if (matcher7.matches()){
+            String month = matcher7.group(1);
+            String day = matcher7.group(2);
+            String year = matcher7.group(3);
+            System.out.println(day + "/" + month + "/" + year);
+        }
 
 
     }

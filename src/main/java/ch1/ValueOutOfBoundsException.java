@@ -1,4 +1,4 @@
-package org.example.ch1;
+package ch1;
 
 public class ValueOutOfBoundsException extends Exception{
 
