@@ -1,4 +1,4 @@
-package ch4;
+package ch4.theater;
 
 import java.util.Scanner;
 
@@ -24,10 +24,10 @@ public class TheaterDemo {
 
             switch (choice) {
                 case 1:
-                    //manageReservation();
+                    manageReservation();
                     break;
                 case 2:
-                    //manageCancelation();
+                    manageCancellation();
                     break;
                 case 3:
                     exit = true;
@@ -56,12 +56,24 @@ public class TheaterDemo {
         καλει τις αντιστοιχες μεθοδους. Δεν εχει λογική ο controller απλα αλληλεπιδρα με τον χρηστη, λαμβανει δεδομενα
         και καλει μεθοδους. Τo Theater που ειναι ενα business object εχει την λογική
          */
-            System.out.printf("%Successful registration\n", theater.reserveSeat(response) ? " " : "Unsuccessful registration");
+            System.out.printf("%s Registration\n", theater.reserveSeat(response) ? "Successful" : "Unsuccessful");
         } catch (IsReservedException e) {
             System.out.println("Seat is already reserved");
         } finally {
             theater.printSeats();
         }
 
+    }
+
+    public static void manageCancellation() {
+        try {
+            System.out.println("Give seat number");
+            String response = in.nextLine();
+            System.out.printf("%s Cancellation\n", theater.cancelReservation(response) ? "Successful" : "Unsuccessful");
+        } catch (IsNotReservedException e) {
+            System.out.println("Seat is not reserved");
+        } finally {
+            theater.printSeats();
+        }
     }
 }

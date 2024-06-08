@@ -1,4 +1,4 @@
-package ch4;
+package ch4.theater;
 /*
 Ορίζει μεθοδους που παρεχουν λειτουργικότητα στην κλαση Theater
  Οι μέθοδοι που βρίσκονται σε ενα interface ειναι by default public και abstract

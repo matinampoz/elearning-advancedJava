@@ -1,4 +1,4 @@
-package ch4;
+package ch4.theater;
 
 public interface ISeat {
     boolean reserve() throws IsReservedException;

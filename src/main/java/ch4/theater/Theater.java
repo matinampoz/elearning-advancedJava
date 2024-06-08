@@ -1,4 +1,4 @@
-package ch4;
+package ch4.theater;
 
 public class Theater implements ITheater{
 
@@ -37,8 +37,10 @@ public class Theater implements ITheater{
     public boolean reserveSeat(String seatNumber) throws IsReservedException {
         int row, column;
         if (seatNumber != null && seatNumber.matches("[A-Z]{1}\\d{2}")){
-            row = seatNumber.charAt(0);
+            row = seatNumber.charAt(0) - 'A';
             column = Integer.parseInt(seatNumber.substring(1));
+
+
         }else {
             System.out.println("Wrong seat number");
             return false;
@@ -57,7 +59,7 @@ public class Theater implements ITheater{
     public boolean cancelReservation(String seatNumber) throws IsNotReservedException {
         int row, column;
         if (seatNumber != null && seatNumber.matches("[A-Z]{1}\\d{2}")){
-            row = seatNumber.charAt(0);
+            row = seatNumber.charAt(0) -'A';
             column = Integer.parseInt(seatNumber.substring(1));
         }else {
             System.out.println("Wrong seat number");
@@ -76,7 +78,7 @@ public class Theater implements ITheater{
         for (Seat[] row : seats) {
             for (Seat column : row){
                 System.out.printf("%s%s", column.getSeatNumber(),
-                        column.isReserved() ? "-R" : "-NR");
+                        column.isReserved() ? "-R  " : "-NR  ");
             }
             System.out.println();
     }
@@ -117,7 +119,7 @@ public class Theater implements ITheater{
 
         @Override
         public boolean reserve() throws IsReservedException {
-            if (isReserved()){
+            if (!isReserved()){
                 setReserved(true);
                 return true;
             }else{
