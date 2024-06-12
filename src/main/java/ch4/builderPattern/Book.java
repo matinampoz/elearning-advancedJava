@@ -1,7 +1,7 @@
 package ch4.builderPattern;
 
 //immutable κλαση, αρα τα πεδια θα γίνουν final
-public class Book {
+public class Book implements ShoppingItem{
 
     private final String bookTitle;
     private final String bookAuthor;
