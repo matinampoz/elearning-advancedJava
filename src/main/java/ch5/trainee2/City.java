@@ -1,5 +1,7 @@
 package ch5.trainee2;
 
+import java.util.Objects;
+
 public class City {
     private String description;
 
@@ -29,5 +31,18 @@ public class City {
         return "City{" +
                 "description='" + description + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        City city = (City) o;
+        return Objects.equals(description, city.description);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(description);
     }
 }
