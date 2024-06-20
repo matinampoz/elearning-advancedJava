@@ -51,6 +51,16 @@ public class Traverse {
         for (Contact contact : contacts) {
             System.out.println(contact);
         }
+
+        System.out.println();
+
+        System.out.println("4η εκτυπωση με χρηση for each");
+        contacts.forEach((Contact contact) -> System.out.println(contact));
+
+        System.out.println();
+
+        System.out.println("5η εκτυπωση με χρηση for each πιο απλα γραμμενο");
+        contacts.forEach(System.out::println);
     }
 
 
