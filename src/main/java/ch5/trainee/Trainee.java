@@ -38,8 +38,8 @@ public class Trainee implements Cloneable{
 
     @Override
     public Trainee clone() throws CloneNotSupportedException {
-        Trainee trainee = (Trainee) super.clone();
-        trainee.city = new City(this.getCity().getDescription());
+        Trainee trainee = (Trainee) super.clone(); //αρχικά γλινεται shallow copy
+        trainee.city = new City(this.getCity().getDescription()); //το city του trainee παιρνει νέα αναφορα
         return trainee;
     }
 }

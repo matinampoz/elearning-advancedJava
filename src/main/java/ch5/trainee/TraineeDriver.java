@@ -1,5 +1,6 @@
 package ch5.trainee;
 
+//αντιγραφη με copy constructor
 public class TraineeDriver {
 
     public static void main(String[] args) throws CloneNotSupportedException {
