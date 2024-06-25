@@ -1,6 +1,7 @@
 package ch6.generics;
 
 public class NodeGenericDemo {
+
     public static void main(String[] args) {
         NodeGeneric<Integer> node1 = new NodeGeneric<>();
         NodeGeneric<String> node2 = new NodeGeneric<>();
