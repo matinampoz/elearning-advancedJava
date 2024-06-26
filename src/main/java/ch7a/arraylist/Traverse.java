@@ -1,4 +1,4 @@
-package ch7.arraylist;
+package ch7a.arraylist;
 
 import java.util.ArrayList;
 import java.util.List;

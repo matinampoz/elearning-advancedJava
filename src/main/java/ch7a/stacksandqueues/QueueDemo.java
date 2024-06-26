@@ -1,4 +1,4 @@
-package ch7.stacksandqueues;
+package ch7a.stacksandqueues;
 
 import java.util.Deque;
 import java.util.LinkedList;

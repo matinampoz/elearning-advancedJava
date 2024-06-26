@@ -1,4 +1,4 @@
-package ch9.model;
+package ch8.model;
 
 public class Trainee {
     private Long id;

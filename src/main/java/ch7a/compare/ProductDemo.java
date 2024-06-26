@@ -1,4 +1,4 @@
-package ch7.compare;
+package ch7a.compare;
 
 import java.util.*;
 import java.util.stream.Collectors;

@@ -1,4 +1,4 @@
-package ch7.stacksandqueues;
+package ch7a.arraylist;
 
 public class Contact {
     private String name;

@@ -1,4 +1,4 @@
-package ch7.hashset;
+package ch7a.hashset;
 
 import java.util.Objects;
 

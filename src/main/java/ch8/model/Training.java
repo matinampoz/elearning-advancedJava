@@ -1,4 +1,4 @@
-package ch9.model;
+package ch8.model;
 
 import java.util.ArrayList;
 import java.util.List;

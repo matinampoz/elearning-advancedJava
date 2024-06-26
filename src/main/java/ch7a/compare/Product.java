@@ -1,4 +1,4 @@
-package ch7.compare;
+package ch7a.compare;
 
 public class Product implements Comparable<Product>{
     private String description;

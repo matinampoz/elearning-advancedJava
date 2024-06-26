@@ -1,4 +1,4 @@
-package ch8.maps;
+package ch7b.maps;
 
 import java.util.*;
 
