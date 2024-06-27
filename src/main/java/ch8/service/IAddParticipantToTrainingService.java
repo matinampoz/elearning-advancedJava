@@ -3,6 +3,7 @@ package ch8.service;
 import ch8.dto.TraineeDTO;
 import ch8.dto.TrainingDTO;
 import ch8.model.Training;
+import ch8.model.Trainee;
 import ch8.service.exeption.TrainingFullyBookedException;
 
 public interface IAddParticipantToTrainingService {

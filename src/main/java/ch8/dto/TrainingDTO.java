@@ -13,4 +13,8 @@ public class TrainingDTO {
     public void getTrainingId(Long trainingId) {
         TrainingId = trainingId;
     }
+
+    public void setTrainingId(Long trainingId) {
+        TrainingId = trainingId;
+    }
 }

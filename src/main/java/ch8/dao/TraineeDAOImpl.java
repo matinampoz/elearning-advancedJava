@@ -2,7 +2,9 @@ package ch8.dao;
 
 import ch8.model.Trainee;
 
-
+/*
+Στις TraineeDAOImpl, TrainingDAOImpl ορίζονται οι υλοποιήσεις των ειδικών DAO κάνοντας extends το AbstractDAO και υλοποιώντας τις ειδικές μεθόδους
+ */
 public class TraineeDAOImpl extends AbstractDAO<Trainee>
         implements ITraineeDAO {
 

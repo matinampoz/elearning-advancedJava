@@ -36,7 +36,11 @@ public class AddParticipantToTrainingServiceImpl implements IAddParticipantToTra
             training = extractTraining(trainingDTO);
             newTraining = new Training(training);
 
+            //Ο βασικός περιορισμός είναι πως οι συμμετέχοντες πρέπει να μην είναι περισσότεροι από 25
             if (training.getTrainees().size() < 25) {
+
+                //Με addTrainee και setTraining υλοποιούμε τη σχέση των αντικειμένων
+                //Καλούμε τα DAO services για μόνιμη αποθήκευση (update) των trainee και training με τις αλλαγές στις αντίστοιχες μόνιμες λίστες
 
                 //Add trainee to the specific training participants list
                 newTraining.addTrainee(trainee);
@@ -53,20 +57,16 @@ public class AddParticipantToTrainingServiceImpl implements IAddParticipantToTra
                 //Update persistent list of trainees
                 traineeDAO.update(trainee, newTrainee);
                 System.out.println("\n...Update of Trainee List success...\n");
-
             }
                 else {
                     throw new TrainingFullyBookedException(training);
                 }
-
             } catch (TraineeNotFoundException | TrainingUnavailableException e){
                 System.out.println(e.getMessage());
-
             }
-
-
-
     }
+
+    //Με βάση τα DTOs κάνουμε extract τις πληροφορίες από την persistent δομή, που είναι η ArrayList (αλλά θα μπορούσε να είναι μία ΒΔ)
     private Trainee extractTrainee(TraineeDTO traineeDTO) throws TraineeNotFoundException {
         Trainee trainee = traineeDAO.getTraineeById(traineeDTO.getId());
         if (trainee != null) return trainee;

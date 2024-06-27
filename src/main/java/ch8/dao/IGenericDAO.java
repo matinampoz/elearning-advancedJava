@@ -1,6 +1,7 @@
 package ch8.dao;
 
 /**
+ * Ορίζεται το γενικό DAO API
  * provides crud operations
  * @param <T> generic class
  */

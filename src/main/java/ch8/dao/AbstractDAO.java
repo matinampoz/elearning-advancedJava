@@ -3,6 +3,9 @@ package ch8.dao;
 import java.util.ArrayList;
 import java.util.List;
 
+/*
+Υλοποιείται το γενικό DAO API. Η persistent δομή είναι μία ArrayList (αντί για μία ΒΔ)
+ */
 public abstract class AbstractDAO<T> implements IGenericDAO<T> {
 
     private Class<T> persistentClass;
@@ -43,6 +46,7 @@ public abstract class AbstractDAO<T> implements IGenericDAO<T> {
         return tList.remove(index);
     }
 
+    //Η getInstanceOf είναι μία abstract factory method δηλ. δημιουργεί αντικείμενα Τ και υποτύπους του Τ
     @Override
     public <K extends T> K getInstanceOf(Class<K> clazz)
             throws IllegalAccessException, InstantiationException {
