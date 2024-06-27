@@ -31,6 +31,7 @@ public class Demo {
 
 
 
+        //Δημιουργούμε αντικείμενα Trainee και τα κάνουμε save
         Trainee alice = traineeDAO.getInstanceOf(Trainee.class);
         alice.setId(1L);
         alice.setFirstname("Alice");
@@ -50,12 +51,16 @@ public class Demo {
         traineeDAO.save(harry);
         traineeDAO.save(matilda);
 
+        //Δημιουργούμε αντικείμενο Training και το κάνουμε save
         Training javaEntry = trainingDAO.getInstanceOf(Training.class);
         javaEntry.setTrainingId(1L);
         javaEntry.setDescription("Java Entry to mid level");
         javaEntry.setTitle("Java Entry Level");
 
         trainingDAO.save(javaEntry);
+
+        //Για λόγους επίδειξης κάνουμε delete ένα Trainee
+        traineeDAO.delete(matilda);
 
         traineeDAO.showList();
         trainingDAO.showList();

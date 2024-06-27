@@ -44,7 +44,7 @@ public class AddParticipantToTrainingServiceImpl implements IAddParticipantToTra
 
                 //Add trainee to the specific training participants list
                 newTraining.addTrainee(trainee);
-                System.out.println("Addition of a trainee with id " + traineeDTO + " successful");
+                System.out.println("Addition of a trainee with id " + traineeDTO.getId() + " successful");
 
                 //Add training to specific Trainee 's training value object
                 newTrainee.setTraining((newTraining));
